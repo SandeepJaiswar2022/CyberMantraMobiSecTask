@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
     BookOpen,
@@ -149,11 +148,13 @@ const TrainingCourses = () => {
                     </div>
 
                     {/* CTA Section */}
-                    <div className="text-center space-y-4 px-2 mt-8">
+                    <div className="text-center px-3 space-y-8">
                         <p className="text-2xl italic">Empower yourself or your team with cybersecurity expertise.</p>
-                        <Button size="lg" className="bg-[#0dafee] hover:bg-[#2098c8]">
-                            Enroll Today
-                        </Button>
+                        <div>
+                            <a href="https://www.aksinstitute.com/allcourses" target="_blank" className="bg-[#0dafee] hover:bg-[#2098c8] font-semibold text-white px-5 py-4 text-lg rounded-md">
+                                Enroll Today
+                            </a>
+                        </div>
                     </div>
                 </section>
 

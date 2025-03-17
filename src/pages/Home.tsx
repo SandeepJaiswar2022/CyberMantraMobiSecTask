@@ -58,32 +58,39 @@ const Home = () => {
     return (
         <div className="space-y-10">
             {/* Hero Section */}
-            <section className="text-center flex flex-col 
- justify-center bg-[url(cyber-bn.jpg)] bg-cover h-[38rem] max-sm:h-[30rem]">
-                <div className='px-3'>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text text-gray-100 font-medium mb-6"
-                    >
-                        Welcome to CyberMantra
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-subheading mb-8 text-white max-w-2xl mx-auto"
-                        style={{ textShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)" }}
-                    >
-                        Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <Button size="lg" className="mr-4 bg-white text-black text-lg  hover:bg-gray-200">Get Started</Button>
-                    </motion.div>
+
+            <section className="relative flex justify-center items-center h-[34rem] max-sm:h-[30rem] bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
+                <div className="absolute inset-0">
+                    <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
+                    <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                    <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                </div>
+                <div className="px-4 relative py-20 md:py-28">
+                    <div className="max-w-4xl mx-auto text-center space-y-6">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-white mb-6 text-heading"
+                        >
+                            Welcome to CyberMantra
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-subheading text-white/90 leading-relaxed"
+                        >
+                            Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.
+
+                        </motion.p>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            <a href='https://www.aksinstitute.com/allcourses' target='_blank' className="cursor-pointer text-lg py-3 px-5 rounded-sm bg-white text-black  hover:bg-gray-300">Get Started</a>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 

@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
+import { useState } from "react";
 
 const Header = () => {
+    const [open, setOpen] = useState(false);
+    const closeSheet = () => setOpen(false);
+
 
     return (
         <header className="bg-white sticky  -top-1 z-10 shadow-sm">
@@ -21,14 +25,14 @@ const Header = () => {
 
                     <div className="hidden md:flex space-x-8 relative">
                         <NavLink to="/">Home</NavLink>
-                        <NavLink to="/cyber-security-audit">Audits</NavLink>
                         <NavLink to="/vapt-services">VAPT Services</NavLink>
                         <NavLink to="/cybersecurity-consultancy">Consultancy</NavLink>
-                        <NavLink to="/training-courses">Training</NavLink>
+                        <NavLink to="/training-courses">Training Courses</NavLink>
+                        <NavLink to="/cyber-security-audit">Audits</NavLink>
                     </div>
 
                     {/* Mobile menu */}
-                    <Sheet>
+                    <Sheet open={open} onOpenChange={setOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" className="md:hidden">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,11 +42,21 @@ const Header = () => {
                         </SheetTrigger>
                         <SheetContent side="left" className="w-[300px]">
                             <div className="flex flex-col space-y-6 mt-6">
-                                <NavLink to="/">Home</NavLink>
-                                <NavLink to="/cyber-security-audit">Audits</NavLink>
-                                <NavLink to="/vapt-services">VAPT Services</NavLink>
-                                <NavLink to="/cybersecurity-consultancy">Consultancy</NavLink>
-                                <NavLink to="/training-courses">Training</NavLink>
+                                <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/">Home</NavLink>
+                                </div>
+                                <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/vapt-services">VAPT Services</NavLink>
+                                </div>
+                                <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/cybersecurity-consultancy">Consultancy</NavLink>
+                                </div>
+                                <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/training-courses">Training Courses</NavLink>
+                                </div>
+                                <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/cyber-security-audit">Audits</NavLink>
+                                </div>
                             </div>
                         </SheetContent>
                     </Sheet>

@@ -1,6 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { animate, motion, useMotionValue } from "framer-motion";
 import { Shield, Search, FileSearch } from "lucide-react";
+import { useEffect } from "react";
+import { useState } from "react";
+import useMeasure from "react-use-measure";
 
 const VAPTServices = () => {
     const services = [
@@ -68,6 +71,40 @@ const VAPTServices = () => {
         },
     ];
 
+    const [ref, { width }] = useMeasure();
+    const xTranslation = useMotionValue(0);
+    const SLOW_DURATION = 200;
+    const FAST_DURATION = 20;
+    const [duration, setDuration] = useState(FAST_DURATION);
+    const [mustFinish, setMustFinish] = useState(false);
+    const [rerender, setRerender] = useState(false);
+
+    useEffect(() => {
+        let controls;
+        let finalPosition = -width / 2 - 4;
+
+        if (mustFinish) {
+            controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
+                duration: duration * (1 - xTranslation.get() / finalPosition),
+                onComplete: () => {
+                    setMustFinish(false);
+                    setRerender(!rerender);
+                }
+            });
+        }
+        else {
+            controls = animate(xTranslation, [0, finalPosition], {
+                duration: duration,
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: `loop`,
+                repeatDelay: 0,
+            })
+        }
+
+        return controls?.stop;
+    }, [xTranslation, width, duration, rerender]);
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -131,11 +168,13 @@ const VAPTServices = () => {
                         </div>
 
                         {/* CTA Section */}
-                        <div className="text-center space-y-4 mt-8">
+                        <div className="text-center space-y-8">
                             <p className="text-2xl italic">Secure your applications and infrastructure with our VAPT services.</p>
-                            <Button size="lg" className="bg-[#0dafee] hover:bg-[#2098c8]">
-                                Learn More
-                            </Button>
+                            <div>
+                                <a href="https://www.aksinstitute.com/allcourses" target="_blank" className="bg-[#0dafee] hover:bg-[#2098c8] px-5 py-4 text-lg font-semibold text-white rounded-md">
+                                    Learn More
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -184,30 +223,42 @@ const VAPTServices = () => {
                     </div>
                 </section>
 
+
                 {/* Why Choose Us Section */}
-                <section className="py-16">
+                <section className="space-y-6 py-16">
                     <div className="container mx-auto px-4">
-                        <div className="container mx-auto px-4">
-                            <h2 className="section-heading text-center">Why CyberMantra for VAPT?</h2>
-                            <div className="flex justify-center items-center gap-2 mb-8">
-                                <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
-                                <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
-                            </div>
+                        <h2 className="section-heading text-center">Why CyberMantra for VAPT?</h2>
+                        <div className="flex justify-center items-center gap-2 mb-8">
+                            <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
+                            <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {features.map((feature, index) => (
-                                <motion.div
+                    </div>
+                    <div className="left-0 mb-16 relative overflow-x-clip h-max w-full">
+                        <motion.div
+                            ref={ref}
+                            className="flex space-x-10"
+                            style={{ x: xTranslation, display: "flex", width: "max-content" }}
+                            onHoverStart={() => {
+                                setMustFinish(true);
+                                setDuration(SLOW_DURATION);
+                            }}
+                            onHoverEnd={() => {
+                                setMustFinish(true);
+                                setDuration(FAST_DURATION);
+                            }}
+                        >
+                            {[...features, ...features].map((reason, index) => (
+                                <Card
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow"
+                                    className="w-[280px] cursor-pointer flex-shrink-0 border-2 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-[#0dafee] transition-all duration-300 transform hover:-translate-y-1"
                                 >
-                                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                                    <p className="text-gray-600">{feature.description}</p>
-                                </motion.div>
+                                    <CardContent className="p-6">
+                                        <h3 className="text-xl font-medium text-gray-800 mb-3">{reason.title}</h3>
+                                        <p className="text-gray-600 leading-relaxed">{reason.description}</p>
+                                    </CardContent>
+                                </Card>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
             </div>
