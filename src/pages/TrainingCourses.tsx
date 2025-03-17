@@ -11,7 +11,6 @@ import {
     Layout,
     Building
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const TrainingCourses = () => {
     const trainingPrograms = [

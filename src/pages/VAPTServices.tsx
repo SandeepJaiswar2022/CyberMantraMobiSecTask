@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Shield, Search, FileSearch, FileCheck, RefreshCcw } from "lucide-react";
+import { Shield, Search, FileSearch } from "lucide-react";
 
 const VAPTServices = () => {
     const services = [

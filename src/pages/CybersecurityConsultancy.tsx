@@ -10,7 +10,6 @@ import {
     TrendingUp,
     Zap
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const CybersecurityConsultancy = () => {
     const consultancyServices = [

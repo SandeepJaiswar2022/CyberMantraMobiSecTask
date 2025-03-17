@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "../ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { DropdownMenu } from "../ui/dropdown-menu";
 
 const Header = () => {
-    const [servicesOpen, setServicesOpen] = useState(false);
 
     return (
         <header className="bg-white sticky  -top-1 z-10 shadow-sm">
