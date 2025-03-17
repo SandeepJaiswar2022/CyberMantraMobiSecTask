@@ -63,10 +63,5 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
     </motion.div>
 );
 
-const DropdownLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-    <Link to={to} className="block px-4 py-2 text-gray-700 hover:bg-gray-300">
-        {children}
-    </Link>
-);
 
 export default Header;
