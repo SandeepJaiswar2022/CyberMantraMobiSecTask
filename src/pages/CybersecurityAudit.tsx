@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, animate } from "framer-motion";
 import useMeasure from "react-use-measure";
 import { Card, CardContent } from "@/components/ui/card";

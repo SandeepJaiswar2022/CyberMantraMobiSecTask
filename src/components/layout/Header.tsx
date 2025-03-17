@@ -6,8 +6,6 @@ import { useState } from "react";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
-    const closeSheet = () => setOpen(false);
-
 
     return (
         <header className="bg-white sticky  -top-1 z-10 shadow-sm">
