@@ -16,7 +16,7 @@ const Footer = () => {
                     {/* Company Info */}
                     <div className="space-y-6">
                         <h3 className="text-2xl font-medium max-sm:text-lg text-white">CyberMantra Technologies</h3>
-                        <p className="text-white/80 max-sm:text-sm text-lg">
+                        <p className="text-white/80 max-sm:text-sm text-[1rem]">
                             Empowering organizations with cutting-edge cybersecurity solutions and expertise.
                         </p>
                     </div>
@@ -30,7 +30,7 @@ const Footer = () => {
                                     <li key={link.name}>
                                         <Link
                                             to={link.path}
-                                            className="text-white/80 max-sm:text-sm  text-lg hover:text-[#0dafee] transition-colors duration-300"
+                                            className="text-white/80 max-sm:text-sm  hover:text-[#0dafee] transition-colors duration-300"
                                         >
                                             {link.name}
                                         </Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                                     <li key={link.name}>
                                         <Link
                                             to={link.path}
-                                            className="text-white/80 max-sm:text-sm text-lg hover:text-[#0dafee] transition-colors duration-300"
+                                            className="text-white/80 max-sm:text-sm hover:text-[#0dafee] transition-colors duration-300"
                                         >
                                             {link.name}
                                         </Link>
@@ -59,14 +59,14 @@ const Footer = () => {
                     <div className="space-y-6">
                         <h3 className="text-2xl max-sm:text-lg font-medium text-white">Contact Us</h3>
                         <div className="space-y-4">
-                            <p className="text-white/80 text-lg max-sm:text-sm">F-201, Phase-1,</p>
-                            <p className="text-white/80 text-lg max-sm:text-sm">New Palam Vihar, Sector-110,</p>
-                            <p className="text-white/80 text-lg max-sm:text-sm">Gurugram-122017, Haryana, IN</p>
-                            <div className="flex md:flex-col lg:flex-row text-white/80 text-lg max-sm:text-sm space-x-1">
-                                <p className="text-[#0dafee] text-lg max-sm:text-sm">Email :</p>
+                            <p className="text-white/80 max-sm:text-sm text-[1rem]">F-201, Phase-1,</p>
+                            <p className="text-white/80 max-sm:text-sm text-[1rem]">New Palam Vihar, Sector-110,</p>
+                            <p className="text-white/80 max-sm:text-sm text-[1rem]">Gurugram-122017, Haryana, IN</p>
+                            <div className="flex md:flex-col lg:flex-row text-white/80 max-sm:text-sm space-x-1">
+                                <p className="text-[#0dafee] text-[1rem] max-sm:text-sm">Email :</p>
                                 <a
                                     href="mailto:contact@cybermantra.in"
-                                    className="text-white/80 text-lg max-sm:text-sm hover:text-[#0dafee] transition-colors duration-300"
+                                    className="text-white/80 text-[1rem] max-sm:text-sm hover:text-[#0dafee] transition-colors duration-300"
                                 >
                                     contact@cybermantra.in
                                 </a>
