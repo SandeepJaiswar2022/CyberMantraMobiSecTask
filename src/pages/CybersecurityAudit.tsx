@@ -1,6 +1,8 @@
 import { motion, useMotionValue, animate } from "framer-motion";
 import useMeasure from "react-use-measure";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const CybersecurityAudit = () => {
     const keyAreas = [
