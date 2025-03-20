@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Company Info */}
                     <div className="space-y-6">
-                        <h3 className="text-2xl font-medium max-sm:text-lg text-white">CyberMantra Technologies</h3>
+                        <h3 className="text-lg font-medium max-sm:text-lg text-white">CyberMantra Technologies</h3>
                         <p className="text-white/80 max-sm:text-sm text-[1rem]">
                             Empowering organizations with cutting-edge cybersecurity solutions and expertise.
                         </p>
@@ -24,7 +24,7 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="grid grid-cols-2 gap-9">
                         <div className="space-y-4">
-                            <h3 className="text-2xl max-sm:text-lg font-medium text-white">Quick Links</h3>
+                            <h3 className="text-lg max-sm:text-lg font-medium text-white">Quick Links</h3>
                             <ul className="space-y-4">
                                 {quickLinks.slice(0, 3).map((link) => (
                                     <li key={link.name}>
@@ -39,7 +39,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="space-y-4">
-                            <h3 className="text-2xl max-sm:text-lg font-medium text-white">Quick Links</h3>
+                            <h3 className="text-lg max-sm:text-lg font-medium text-white">Quick Links</h3>
                             <ul className="space-y-4">
                                 {quickLinks.slice(3).map((link) => (
                                     <li key={link.name}>
@@ -57,7 +57,7 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div className="space-y-6">
-                        <h3 className="text-2xl max-sm:text-lg font-medium text-white">Contact Us</h3>
+                        <h3 className="text-lg max-sm:text-lg font-medium text-white">Contact Us</h3>
                         <div className="space-y-4">
                             <p className="text-white/80 max-sm:text-sm text-[1rem]">F-201, Phase-1,</p>
                             <p className="text-white/80 max-sm:text-sm text-[1rem]">New Palam Vihar, Sector-110,</p>
@@ -93,7 +93,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="mt-16 pt-8 border-t border-white/20 text-center">
-                    <p className="text-white/50 max-sm:text-normal text-lg">&copy; {new Date().getFullYear()} CyberMantra Technologies. All rights reserved.</p>
+                    <p className="text-white/50 max-sm:text-normal text-sm">&copy; {new Date().getFullYear()} CyberMantra Technologies. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, Code, Users, LifeBuoy } from "lucide-react";
+import { ShieldCheck, Code, Users, LifeBuoy, ArrowRight } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const expertise = [
@@ -59,7 +59,7 @@ const Home = () => {
         <div className="space-y-10">
             {/* Hero Section */}
 
-            <section className="relative flex justify-center items-center h-[34rem] max-sm:h-[30rem] bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
+            <section style={{ backgroundImage: "url('/cyber-bn.jpg')" }} className="relative bg-no-repeat flex justify-center items-center h-[34rem] max-sm:h-[30rem] bg-cover bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
                     <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -83,13 +83,18 @@ const Home = () => {
                             Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.
 
                         </motion.p>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <a href='https://www.aksinstitute.com/allcourses' target='_blank' className="cursor-pointer text-lg py-3 px-5 rounded-sm bg-white text-black  hover:bg-gray-300">Get Started</a>
-                        </motion.div>
+                        <div className="">
+                            <motion.a
+                                href="https://www.aksinstitute.com/allcourses"
+                                target="_blank"
+                                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                Enroll Today
+                                <ArrowRight className="w-5 h-5" />
+                            </motion.a>
+                        </div>
                     </div>
                 </div>
             </section>

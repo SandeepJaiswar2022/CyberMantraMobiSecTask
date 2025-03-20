@@ -17,7 +17,7 @@ const Header = () => {
                         className="text-2xl font-bold"
                     >
                         <Link to="/">
-                            <img src="logo.png" className="md:w-44 max-sm:w-36 lg:w-56" alt="CyberMantra Logo" />
+                            <img src="/logo.png" className="md:w-44 max-sm:w-36 lg:w-56" alt="CyberMantra Logo" />
                         </Link>
                     </motion.div>
 

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { animate, motion, useMotionValue } from "framer-motion";
-import { Shield, Search, FileSearch } from "lucide-react";
+import { Shield, Search, FileSearch, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { useState } from "react";
 import useMeasure from "react-use-measure";
@@ -170,10 +170,18 @@ const VAPTServices = () => {
                         {/* CTA Section */}
                         <div className="text-center space-y-8">
                             <p className="text-2xl italic">Secure your applications and infrastructure with our VAPT services.</p>
-                            <div>
-                                <a href="https://www.aksinstitute.com/allcourses" target="_blank" className="bg-[#0dafee] hover:bg-[#2098c8] px-5 py-4 text-lg font-semibold text-white rounded-md">
+                            {/* Enroll Now Button */}
+                            <div className="">
+                                <motion.a
+                                    href="https://www.aksinstitute.com/allcourses"
+                                    target="_blank"
+                                    className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
                                     Learn More
-                                </a>
+                                    <ArrowRight className="w-5 h-5" />
+                                </motion.a>
                             </div>
                         </div>
                     </div>

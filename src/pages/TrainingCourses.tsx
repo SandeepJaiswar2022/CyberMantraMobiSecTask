@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
     BookOpen,
     Terminal,
@@ -8,12 +9,16 @@ import {
     Users,
     Laptop,
     Layout,
-    Building
+    Building,
+    ArrowRight
 } from "lucide-react";
 
 const TrainingCourses = () => {
+    const navigate = useNavigate();
+
     const trainingPrograms = [
         {
+            id: "cybersecurity-fundamentals",
             title: "Cybersecurity Fundamentals",
             description: "Understand the basics of cybersecurity, threat identification, and mitigation.",
             icon: <Shield className="w-10 h-10 text-[#0dafee]" />,
@@ -21,6 +26,7 @@ const TrainingCourses = () => {
             level: "Beginner",
         },
         {
+            id: "ethical-hacking",
             title: "Ethical Hacking",
             description: "Gain hands-on experience with tools and techniques to identify and exploit vulnerabilities ethically.",
             icon: <Terminal className="w-10 h-10 text-[#0dafee]" />,
@@ -28,6 +34,7 @@ const TrainingCourses = () => {
             level: "Intermediate",
         },
         {
+            id: "advanced-security-practices",
             title: "Advanced Security Practices",
             description: "Learn advanced techniques in incident response, threat hunting, and malware analysis.",
             icon: <Shield className="w-10 h-10 text-[#0dafee]" />,
@@ -35,6 +42,7 @@ const TrainingCourses = () => {
             level: "Advanced",
         },
         {
+            id: "programming-for-security",
             title: "Programming for Security",
             description: "Master languages like Python and Java with a focus on security applications.",
             icon: <Code className="w-10 h-10 text-[#0dafee]" />,
@@ -42,6 +50,7 @@ const TrainingCourses = () => {
             level: "Intermediate",
         },
         {
+            id: "certifications-training",
             title: "Certifications Training",
             description: "Prepare for globally recognized certifications such as CEH, CISSP, and CISM.",
             icon: <Award className="w-10 h-10 text-[#0dafee]" />,
@@ -82,7 +91,7 @@ const TrainingCourses = () => {
     return (
         <div className="min-h-screen space-y-24">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-tr h-[32rem] max-sm:h-fit from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
+            <section className="relative bg-gradient-to-tr bg-url('/training-banner.jpg') h-[32rem] max-sm:h-fit from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
                     <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -115,7 +124,7 @@ const TrainingCourses = () => {
                 <section className="space-y-16">
                     <div className="space-y-12 px-4">
                         <div className="container mx-auto px-4">
-                            <h2 className=" text-center section-heading">Training Programs We Offer</h2>
+                            <h2 className="text-center section-heading">Training Programs We Offer</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
                                 <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                                 <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
@@ -124,11 +133,12 @@ const TrainingCourses = () => {
                         <div className="grid-layout grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {trainingPrograms.map((program, index) => (
                                 <motion.div
-                                    key={index}
+                                    key={program.id}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="card overflow-hidden group"
+                                    className="card overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-200"
+                                    onClick={() => navigate(`/course/${program.id}`)}
                                 >
                                     <div className="p-6 border-b border-gray-100">
                                         <div className="bg-[#134a9d]/5 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#134a9d]/10 transition-colors">
@@ -144,16 +154,23 @@ const TrainingCourses = () => {
                                 </motion.div>
                             ))}
                         </div>
-
                     </div>
 
                     {/* CTA Section */}
                     <div className="text-center px-3 space-y-8">
                         <p className="text-2xl italic">Empower yourself or your team with cybersecurity expertise.</p>
-                        <div>
-                            <a href="https://www.aksinstitute.com/allcourses" target="_blank" className="bg-[#0dafee] hover:bg-[#2098c8] font-semibold text-white px-5 py-4 text-lg rounded-md">
+                        {/* Enroll Now Button */}
+                        <div className="">
+                            <motion.a
+                                href="https://www.aksinstitute.com/allcourses"
+                                target="_blank"
+                                className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
                                 Enroll Today
-                            </a>
+                                <ArrowRight className="w-5 h-5" />
+                            </motion.a>
                         </div>
                     </div>
                 </section>
