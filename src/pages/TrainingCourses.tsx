@@ -91,18 +91,31 @@ const TrainingCourses = () => {
     return (
         <div className="min-h-screen space-y-24">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-tr bg-url('/training-banner.jpg') h-[32rem] max-sm:h-fit from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
-                    <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                    <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                </div>
-                <div className="px-4 md:px-7 relative py-20 md:py-28">
+            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[34rem] max-sm:min-h-[22rem] overflow-hidden">
+                {/* Background Image with Responsive Sizes */}
+                <picture className="absolute inset-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet="https://images.unsplash.com/photo-1675495666589-94cdafbcfcc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <source
+                        media="(min-width: 640px)"
+                        srcSet="https://images.unsplash.com/photo-1696834137451-f52f471a58bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1696834137451-f52f471a58bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Professional Training Environment"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
+
+                {/* Content */}
+                <div className="relative px-4 py-24 lg:py-28 md:py-26 max-sm:py-20">
                     <div className="max-w-4xl mx-auto text-center space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading"
+                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
                         >
                             Expert-Led Cybersecurity Training Courses
                         </motion.h1>
@@ -110,7 +123,7 @@ const TrainingCourses = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-subheading text-white/90 leading-relaxed"
+                            className="text-white/90 bg-black/25 p-4 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
                         >
                             Empower your team with comprehensive cybersecurity knowledge through our industry-leading training courses.
                             Learn from experienced professionals and stay ahead of evolving cyber threats.

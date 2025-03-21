@@ -130,18 +130,34 @@ const CybersecurityConsultancy = () => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-[32rem] max-sm:h-fit bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
-                    <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                    <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                </div>
-                <div className="px-4 relative py-20 md:py-28">
+            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[30rem] max-sm:min-h-[22rem] overflow-hidden">
+                {/* Background Image with Responsive Sizes */}
+                <picture className="absolute inset-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet="https://images.unsplash.com/photo-1591051270770-b268b0189078?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=1920"
+                    />
+
+
+
+                    <source
+                        media="(min-width: 640px)"
+                        srcSet="https://images.unsplash.com/photo-1591051270770-b268b0189078?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=1920"
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1591051270770-b268b0189078?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=1920"
+                        alt="Strategic Security Planning"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
+
+                {/* Content */}
+                <div className="relative px-4 py-24 lg:py-28 md:py-20 max-sm:py-20">
                     <div className="max-w-4xl mx-auto text-center space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading"
+                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
                         >
                             Strategic Cybersecurity Consulting Services
                         </motion.h1>
@@ -149,7 +165,7 @@ const CybersecurityConsultancy = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-subheading px-2 text-white/90 leading-relaxed"
+                            className="text-white/90 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
                         >
                             Partner with CyberMantra Technologies for expert cybersecurity consulting services. Our experienced
                             consultants help organizations build robust security strategies, implement best practices, and achieve

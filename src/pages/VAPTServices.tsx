@@ -108,32 +108,43 @@ const VAPTServices = () => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="h-fit bg-gray-100 py-20">
-                <div className="my-container  mx-auto px-4">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-                        <div className="flex-1 space-y-6">
-                            <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-heading text-[#0dafee]"
-                            >
-                                Vulnerability Assessment and Penetration Testing (VAPT)
-                            </motion.h1>
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="text-subheading font-semibold text-gray-600"
-                            >
-                                Our VAPT services are designed to identify vulnerabilities in your digital assets and simulate real-world attacks to test your defences. From web applications to mobile apps and executables, we ensure your systems are secure.
-                            </motion.p>
-                        </div>
-                        <div className="flex-1 flex justify-center">
-                            <div className="w-full h-[300px]  bg-gray-100 rounded-lg ">
-                                {/* <p className="text-gray-500">Security Illustration Placeholder</p> */}
-                                <img src="vapt2.png" alt="VAPT Illustration" className="w-full h-full object-contain" />
-                            </div>
-                        </div>
+            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[30rem] max-sm:min-h-[22rem] overflow-hidden">
+                {/* Background Image with Responsive Sizes */}
+                <picture className="absolute inset-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920"
+                    />
+                    <source
+                        media="(min-width: 640px)"
+                        srcSet="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1024"
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=640"
+                        alt="Security Testing and Analysis"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
+
+                {/* Content */}
+                <div className="relative px-4 py-24 lg:py-28 md:py-20 max-sm:py-20">
+                    <div className="max-w-4xl mx-auto text-center space-y-6">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
+                        >
+                            Vulnerability Assessment and Penetration Testing (VAPT)
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-white/90 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
+                        >
+                            Comprehensive security testing services to identify and address vulnerabilities in your systems.
+                            Our expert team provides detailed assessments and actionable recommendations.
+                        </motion.p>
                     </div>
                 </div>
             </section>

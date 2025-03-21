@@ -56,21 +56,33 @@ const features = [
 
 const Home = () => {
     return (
-        <div className="space-y-10">
+        <div>
             {/* Hero Section */}
+            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[30rem] max-sm:min-h-[22rem] overflow-hidden">
+                {/* Background Image with Responsive Sizes */}
+                <picture className="absolute max-sm:inset-0 md:inset-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <source
+                        media="(min-width: 640px)"
+                        srcSet="https://plus.unsplash.com/premium_photo-1676618540046-3a68a4e20408?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fGN5YmVyJTIwc2VjdXJpdHl8ZW58MHx8MHx8fDA%3D"
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Modern Cybersecurity Dashboard"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
 
-            <section style={{ backgroundImage: "url('/cyber-bn.jpg')" }} className="relative bg-no-repeat flex justify-center items-center h-[34rem] max-sm:h-[30rem] bg-cover bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
-                    <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                    <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                </div>
-                <div className="px-4 relative py-20 md:py-28">
+                {/* Content */}
+                <div className="relative px-4 py-24 lg:py-28 md:py-20 max-sm:py-20">
                     <div className="max-w-4xl mx-auto text-center space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading"
+                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
                         >
                             Welcome to CyberMantra
                         </motion.h1>
@@ -78,16 +90,15 @@ const Home = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-subheading text-white/90 leading-relaxed"
+                            className="text-white/90 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
                         >
                             Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.
-
                         </motion.p>
                         <div className="">
                             <motion.a
                                 href="https://www.aksinstitute.com/allcourses"
                                 target="_blank"
-                                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 max-sm:px-2 max-sm:text-sm max-sm:py-2.5 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
@@ -101,7 +112,7 @@ const Home = () => {
 
             <div className='my-container space-y-4 max-sm:px-6'>
                 {/* Our Expertise Section */}
-                <section className="py-16">
+                <section className="max-sm:py-5 py-14">
                     <div className="">
                         <h2 className="section-heading text-center">Our Expertise</h2>
                         <div className="flex justify-center items-center gap-2 mb-8">
@@ -122,16 +133,16 @@ const Home = () => {
                                             boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.4)"
                                         }}
                                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className=" border-[#0dafee] h-[17rem] border rounded-lg"
+                                        className=" border-[#0dafee] h-[15rem] max-sm:h-fit border rounded-lg"
                                     >
                                         <Link to={feature.link}>
-                                            <Card className="cursor-pointer  ">
+                                            <Card className="cursor-pointer">
                                                 <CardHeader>
                                                     <CardTitle>{feature.title}</CardTitle>
                                                 </CardHeader>
                                                 <CardContent>
                                                     <div className='space-y-6'>
-                                                        <p className="text-gray-600 text-lg">{feature.description}</p>
+                                                        <p className="text-gray-600 max-sm:text-sm">{feature.description}</p>
                                                         <Button className='bg-[#0dafee] hover:bg-[#2098c8] text-white'>Learn More</Button>
                                                     </div>
                                                 </CardContent>
@@ -148,13 +159,13 @@ const Home = () => {
                 <section className='grid lg:grid-cols-2 max-sm:grid-cols-1 md:grid-cols-1 gap-5'>
                     <div className="mx-auto bg-white rounded-lg ">
                         <h2 className="section-heading">CyberMantra Technologies: Your Trusted Cybersecurity Partner</h2>
-                        <p className="text-gray-600 md:text-lg">
+                        <p className="text-gray-600 max-sm:text-sm">
                             In an era where digital threats are constantly evolving, CyberMantra Technologies Private Limited stands as a beacon of security and trust.
                             We specialize in delivering comprehensive cybersecurity services, including audits, vulnerability assessments, penetration testing, consultancy, and training programs.
                             Our mission is to safeguard businesses and individuals from cyber threats while empowering them with the knowledge and tools to stay secure.
                         </p>
                     </div>
-                    <div className='p-2'>
+                    <div>
                         {/* <img  src="cyber-content-side-image.jpeg" alt="" /> */}
                         <picture>
                             {/* Image for small screens */}
@@ -177,14 +188,14 @@ const Home = () => {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-sm:gap-2">
                             {features.map((feature, index) => (
-                                <Card key={index} className="py-4   text-center">
+                                <Card key={index} className="text-center">
                                     <CardHeader className='space-y-5'>
                                         <div className={`w-20 h-20 mx-auto flex items-center justify-center ${feature.bgColor} rounded-full text-white`}>
                                             {feature.icon}
                                         </div>
                                         <CardTitle className="mt-4">{feature.title}</CardTitle>
                                     </CardHeader>
-                                    <CardContent>
+                                    <CardContent className='-p-2'>
                                         <p className="text-gray-600">{feature.description}</p>
                                     </CardContent>
                                 </Card>

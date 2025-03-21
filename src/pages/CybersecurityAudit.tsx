@@ -103,27 +103,39 @@ const CybersecurityAudit = () => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-[29rem] max-sm:h-fit bg-gradient-to-tr from-[#134a9d] via-[#134a9d]/90 to-[#134a9d]/80 overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10"></div>
-                    <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                    <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                </div>
-                <div className="relative py-20  md:py-28">
-                    <div className="max-w-4xl mx-auto px-3 text-center space-y-6">
+            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[30rem] max-sm:min-h-[22rem] overflow-hidden">
+                {/* Background Image with Responsive Sizes */}
+                <picture className="absolute inset-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet="https://media.istockphoto.com/id/1653312926/photo/document-management-and-checking-system-online-documentation-database-online-approve.jpg?s=612x612&w=0&k=20&c=K8pzbh-I2ScVwFKNzw_ycZ7dYr1PYkOLNKuDHKWVr70="
+                    />
+                    <source
+                        media="(min-width: 640px)"
+                        srcSet="https://media.istockphoto.com/id/1653312926/photo/document-management-and-checking-system-online-documentation-database-online-approve.jpg?s=612x612&w=0&k=20&c=K8pzbh-I2ScVwFKNzw_ycZ7dYr1PYkOLNKuDHKWVr70="
+                    />
+                    <img
+                        src="https://media.istockphoto.com/id/1653312926/photo/document-management-and-checking-system-online-documentation-database-online-approve.jpg?s=612x612&w=0&k=20&c=K8pzbh-I2ScVwFKNzw_ycZ7dYr1PYkOLNKuDHKWVr70="
+                        alt="Security Audit and Compliance"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
+
+                {/* Content */}
+                <div className="relative px-4 py-24 lg:py-28 md:py-20 max-sm:py-20">
+                    <div className="max-w-xl mx-auto text-center space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="text-4xl md:text-5xl font-medium text-white"
+                            className="text-white mb-6  bg-black/15 p-2 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
                         >
                             Cybersecurity Audit
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto"
+                            transition={{ delay: 0.2 }}
+                            className="text-white/90 bg-black/15 p-2 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
                         >
                             Comprehensive security assessment and evaluation of your organization's cybersecurity posture by CyberMantra Technologies.
                         </motion.p>
@@ -136,7 +148,7 @@ const CybersecurityAudit = () => {
                 <section className="space-y-16">
                     <div>
                         <div className="text-center">
-                            <h2 className="text-3xl font-medium text-center mb-2">Key Areas We Cover</h2>
+                            <h2 className="section-heading text-center mb-2">Key Areas We Cover</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
                                 <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                                 <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
@@ -146,7 +158,7 @@ const CybersecurityAudit = () => {
                             {keyAreas.map((area, index) => (
                                 <Card key={index} className="border-2 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-[#0dafee]/20 transition-all duration-300 transform hover:-translate-y-1">
                                     <CardContent className="p-6">
-                                        <h3 className="text-xl font-medium text-gray-800 mb-3">{area.title}</h3>
+                                        <h3 className="text-lg font-medium text-gray-800 mb-3">{area.title}</h3>
                                         <p className="text-gray-600 leading-relaxed">{area.description}</p>
                                     </CardContent>
                                 </Card>
@@ -158,7 +170,7 @@ const CybersecurityAudit = () => {
                 {/* Why Choose Us Section */}
                 <section className="space-y-6">
                     <div className="text-center">
-                        <h2 className="text-3xl font-medium text-center mb-2">Why Choose Us</h2>
+                        <h2 className="section-heading text-center mb-2">Why Choose Us</h2>
                         <div className="flex justify-center items-center gap-2 mb-8">
                             <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                             <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
@@ -184,7 +196,7 @@ const CybersecurityAudit = () => {
                                     className="w-[280px] cursor-pointer flex-shrink-0 border-2 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-[#0dafee] transition-all duration-300 transform hover:-translate-y-1"
                                 >
                                     <CardContent className="p-6">
-                                        <h3 className="text-xl font-medium text-gray-800 mb-3">{reason.title}</h3>
+                                        <h3 className="text-lg font-medium text-gray-800 mb-3">{reason.title}</h3>
                                         <p className="text-gray-600 leading-relaxed">{reason.description}</p>
                                     </CardContent>
                                 </Card>
@@ -196,7 +208,7 @@ const CybersecurityAudit = () => {
                 {/* Audit Process Section */}
                 <section className="space-y-6">
                     <div className="text-center">
-                        <h2 className="text-3xl font-medium text-center mb-2">Our Audit Process</h2>
+                        <h2 className="section-heading text-center mb-2">Our Audit Process</h2>
                         <div className="flex justify-center items-center gap-2 mb-8">
                             <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                             <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
@@ -209,7 +221,7 @@ const CybersecurityAudit = () => {
                                     <div className="w-12 h-12 bg-[#0dafee]/10 rounded-full flex items-center justify-center mb-4">
                                         <span className="text-[#0dafee] text-xl font-medium">{index + 1}</span>
                                     </div>
-                                    <h3 className="text-xl font-medium text-gray-800 mb-3">{step.title}</h3>
+                                    <h3 className="text-lg font-medium text-gray-800 mb-3">{step.title}</h3>
                                     <p className="text-gray-600 leading-relaxed">{step.description}</p>
                                 </CardContent>
                             </Card>

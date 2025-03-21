@@ -98,7 +98,7 @@
   }
 
   .section-heading {
-    @apply text-3xl max-sm:text-2xl font-medium  mb-2 text-black;
+    @apply text-3xl max-sm:text-xl font-medium mb-2 text-black;
   }
 
   .text-subheading {
