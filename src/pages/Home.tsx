@@ -106,15 +106,6 @@ const slides = [
 
 
 const Home = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % sliderContent.length);
-        }, 5000); // Change slide every 5 seconds
-
-        return () => clearInterval(timer);
-    }, []);
 
 
     return (
