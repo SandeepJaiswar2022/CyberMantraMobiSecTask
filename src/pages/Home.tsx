@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, Code, Users, LifeBuoy, ArrowRight } from "lucide-react";
+import { ShieldCheck, Code, Users, LifeBuoy } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CustomCarousel from '@/components/features/Carousal';

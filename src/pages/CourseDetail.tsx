@@ -1,34 +1,12 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, Award, Users, CheckCircle, Briefcase, ArrowRight, Calendar, BookOpen, Globe, Target, Lightbulb, FileText, CheckSquare, GraduationCap, Coins, Tag, Signal } from "lucide-react";
+import { Award, Users, CheckCircle, Briefcase, ArrowRight, Calendar, BookOpen, Tag, Signal } from "lucide-react";
 import Courses, { Course } from "@/data/CoursesDetail";
 
 const CourseDetail = () => {
     const { id } = useParams();
     const course = Courses.find((course: Course) => course.id === id);
 
-    const workProcess = [
-        {
-            title: "Initial Consultation",
-            description: "Understand your business needs and challenges.",
-        },
-        {
-            title: "Gap Analysis",
-            description: "Identify areas for improvement in your existing security framework.",
-        },
-        {
-            title: "Strategy Development",
-            description: "Design a tailored cybersecurity plan.",
-        },
-        {
-            title: "Implementation Support",
-            description: "Assist with deploying and integrating security solutions.",
-        },
-        {
-            title: "Ongoing Support",
-            description: "Provide continuous monitoring and updates as needed.",
-        },
-    ];
 
     if (!course) {
         return (
