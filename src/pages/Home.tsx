@@ -3,32 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Code, Users, LifeBuoy } from "lucide-react";
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import CustomCarousel from '@/components/features/Carousal';
 
-const sliderContent = [
-    {
-        title: "Welcome to CyberMantra",
-        description: "Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920",
-        imageMd: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1024",
-        imageSm: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=640",
-    },
-    {
-        title: "Secure Your Digital Future",
-        description: "Expert cybersecurity solutions to protect your business from evolving digital threats.",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1920",
-        imageMd: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1024",
-        imageSm: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=640",
-    },
-    {
-        title: "Professional Training Programs",
-        description: "Comprehensive cybersecurity training to build the next generation of security experts.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920",
-        imageMd: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1024",
-        imageSm: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=640",
-    }
-];
 
 const expertise = [
     {
