@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Award, Users, CheckCircle, Briefcase, ArrowRight, Calendar, BookOpen, Tag, Signal } from "lucide-react";
 import Courses, { Course } from "@/data/CoursesDetail";
@@ -132,18 +132,16 @@ const CourseDetail = () => {
 
 
                             {/* Enroll Now Button */}
-                            <div className="flex justify-center">
-                                <motion.a
-                                    href="https://www.aksinstitute.com/allcourses"
-                                    target="_blank"
+                            <Link to={`/contact`} className="flex justify-center">
+                                <motion.div
                                     className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     Enroll Now
                                     <ArrowRight className="w-5 h-5" />
-                                </motion.a>
-                            </div>
+                                </motion.div>
+                            </Link>
 
                             {/* CURRICULLUM */}
                             <section className=" px-2 bg-white">
