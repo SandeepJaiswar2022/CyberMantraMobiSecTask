@@ -6,6 +6,7 @@ import VAPTServices from './pages/VAPTServices';
 import CybersecurityConsultancy from './pages/CybersecurityConsultancy';
 import TrainingCourses from './pages/TrainingCourses';
 import CourseDetail from './pages/CourseDetail';
+import Contact from './pages/Contact';
 
 function App() {
   const router = createBrowserRouter(
@@ -17,6 +18,7 @@ function App() {
         <Route path="cybersecurity-consultancy" element={<CybersecurityConsultancy />} />
         <Route path="training-courses" element={<TrainingCourses />} />
         <Route path="course/:id" element={<CourseDetail />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
     )
   );

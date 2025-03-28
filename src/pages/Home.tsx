@@ -1,8 +1,34 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Code, Users, LifeBuoy, ArrowRight } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import CustomCarousel from '@/components/features/Carousal';
+
+const sliderContent = [
+    {
+        title: "Welcome to CyberMantra",
+        description: "Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=640",
+    },
+    {
+        title: "Secure Your Digital Future",
+        description: "Expert cybersecurity solutions to protect your business from evolving digital threats.",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=640",
+    },
+    {
+        title: "Professional Training Programs",
+        description: "Comprehensive cybersecurity training to build the next generation of security experts.",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=640",
+    }
+];
 
 const expertise = [
     {
@@ -54,61 +80,46 @@ const features = [
     },
 ];
 
-const Home = () => {
-    return (
-        <div>
-            {/* Hero Section */}
-            <section className="relative min-h-[32rem] lg:min-h-[36rem] md:min-h-[30rem] max-sm:min-h-[22rem] overflow-hidden">
-                {/* Background Image with Responsive Sizes */}
-                <picture className="absolute max-sm:inset-0 md:inset-0">
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <source
-                        media="(min-width: 640px)"
-                        srcSet="https://plus.unsplash.com/premium_photo-1676618540046-3a68a4e20408?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fGN5YmVyJTIwc2VjdXJpdHl8ZW58MHx8MHx8fDA%3D"
-                    />
-                    <img
-                        src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Modern Cybersecurity Dashboard"
-                        className="w-full h-full object-cover"
-                    />
-                </picture>
+const slides = [
+    {
+        title: "Comprehensive Security Solutions",
+        description: "Protecting your digital assets with advanced cybersecurity measures and real-time threat monitoring.",
+        image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=640"
+    },
+    {
+        title: "Expert Security Auditing",
+        description: "In-depth analysis and assessment of your systems to identify vulnerabilities and strengthen defenses.",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=640"
+    },
+    {
+        title: "Advanced Threat Detection",
+        description: "Stay ahead of cyber threats with our cutting-edge detection and prevention systems.",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920",
+        imageMd: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1024",
+        imageSm: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=640"
+    }
+];
 
-                {/* Content */}
-                <div className="relative px-4 py-24 lg:py-28 md:py-20 max-sm:py-20">
-                    <div className="max-w-4xl mx-auto text-center space-y-6">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
-                        >
-                            Welcome to CyberMantra
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-white/90 leading-relaxed lg:text-xl md:text-lg max-sm:text-base max-w-2xl mx-auto"
-                        >
-                            Empowering the future through technology and innovation. Join us on our journey to transform the digital landscape.
-                        </motion.p>
-                        <div className="">
-                            <motion.a
-                                href="https://www.aksinstitute.com/allcourses"
-                                target="_blank"
-                                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 max-sm:px-2 max-sm:text-sm max-sm:py-2.5 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                Enroll Today
-                                <ArrowRight className="w-5 h-5" />
-                            </motion.a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+const Home = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % sliderContent.length);
+        }, 5000); // Change slide every 5 seconds
+
+        return () => clearInterval(timer);
+    }, []);
+
+
+    return (
+        <div className="min-h-screen">
+            <CustomCarousel slides={slides} />
 
             <div className='my-container space-y-4 max-sm:px-6'>
                 {/* Our Expertise Section */}
@@ -119,7 +130,7 @@ const Home = () => {
                             <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                             <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                             {expertise.map((feature, index) => (
                                 <motion.div
                                     key={feature.title}
@@ -129,11 +140,11 @@ const Home = () => {
                                 >
                                     <motion.div
                                         whileHover={{
-                                            scale: 1.03,
+                                            scale: 1.01,
                                             boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.4)"
                                         }}
                                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className=" border-[#0dafee] h-[15rem] max-sm:h-fit border rounded-lg"
+                                        className=" border-[#0dafee] h-[18rem] max-sm:h-fit border rounded-lg"
                                     >
                                         <Link to={feature.link}>
                                             <Card className="cursor-pointer">
@@ -171,9 +182,9 @@ const Home = () => {
                             {/* Image for small screens */}
                             <source srcSet="cyber-content-side-image.jpeg" media="(max-width: 640px)" />
                             {/* Image for medium screens */}
-                            <source srcSet="cyber-content-side-image-mob.jpeg" media="(max-width: 1024px)" />
+                            <source srcSet="cybersecurity-partner.jpg" media="(max-width: 1024px)" />
                             {/* Default image for larger screens */}
-                            <img src="cyber-content-side-image.jpeg" alt="Responsive Example" className='h-[20rem] max-sm:h-[14rem] w-full' />
+                            <img src="cybersecurity-partner.jpg" alt="Responsive Example" className='h-[19rem] max-sm:h-[15rem] w-full' />
                         </picture>
                     </div>
                 </section>
@@ -190,7 +201,7 @@ const Home = () => {
                             {features.map((feature, index) => (
                                 <Card key={index} className="text-center">
                                     <CardHeader className='space-y-5'>
-                                        <div className={`w-20 h-20 mx-auto flex items-center justify-center ${feature.bgColor} rounded-full text-white`}>
+                                        <div className={`w-16 h-16 mx-auto flex items-center justify-center ${feature.bgColor} rounded-full text-white`}>
                                             {feature.icon}
                                         </div>
                                         <CardTitle className="mt-4">{feature.title}</CardTitle>
@@ -207,6 +218,5 @@ const Home = () => {
         </div>
     );
 };
-
 
 export default Home; 

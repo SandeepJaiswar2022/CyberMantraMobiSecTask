@@ -1,11 +1,34 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, Award, Users, CheckCircle, Briefcase, ArrowRight, Calendar, BookOpen, Globe, Target, Lightbulb, FileText, CheckSquare, GraduationCap } from "lucide-react";
+import { Clock, Award, Users, CheckCircle, Briefcase, ArrowRight, Calendar, BookOpen, Globe, Target, Lightbulb, FileText, CheckSquare, GraduationCap, Coins, Tag, Signal } from "lucide-react";
 import Courses, { Course } from "@/data/CoursesDetail";
 
 const CourseDetail = () => {
     const { id } = useParams();
     const course = Courses.find((course: Course) => course.id === id);
+
+    const workProcess = [
+        {
+            title: "Initial Consultation",
+            description: "Understand your business needs and challenges.",
+        },
+        {
+            title: "Gap Analysis",
+            description: "Identify areas for improvement in your existing security framework.",
+        },
+        {
+            title: "Strategy Development",
+            description: "Design a tailored cybersecurity plan.",
+        },
+        {
+            title: "Implementation Support",
+            description: "Assist with deploying and integrating security solutions.",
+        },
+        {
+            title: "Ongoing Support",
+            description: "Provide continuous monitoring and updates as needed.",
+        },
+    ];
 
     if (!course) {
         return (
@@ -22,36 +45,58 @@ const CourseDetail = () => {
         <div className="min-h-screen bg-gray-50 py-12">
             <div className="my-container space-y-20 px-4">
 
+                <h1 className="text-center text-4xl bg-white shadow-md py-10 uppercase">
+                    {course.courseName}
+                </h1>
 
-                {/* Enroll Now Button */}
-                <div className="">
-                    <motion.a
-                        href="https://www.aksinstitute.com/allcourses"
-                        target="_blank"
-                        className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        Enroll Now
-                        <ArrowRight className="w-5 h-5" />
-                    </motion.a>
+                {/* Course Overview Banner */}
+                <div className=" mb-16 grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div className="bg-white rounded-xl border-b hover:shadow-lg p-6 flex items-start gap-4">
+                        <Calendar className="w-6 h-6 text-[#0dafee] mt-1" />
+                        <div>
+                            <h3 className="text-gray-500 text-sm mb-1">Program Duration</h3>
+                            <p className="font-semibold text-gray-800">{course.duration}</p>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-xl border-b hover:shadow-lg p-6 flex items-start gap-4">
+                        <Signal className="w-6 h-6 text-[#0dafee] mt-1" />
+                        <div>
+                            <h3 className="text-gray-500 text-sm mb-1">Level</h3>
+                            <p className="font-semibold text-gray-800">Beginner</p>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-xl border-b hover:shadow-lg p-6 flex items-start gap-4">
+                        <BookOpen className="w-6 h-6 text-[#0dafee] mt-1" />
+                        <div>
+                            <h3 className="text-gray-500 text-sm mb-1">Lessons</h3>
+                            <p className="font-semibold text-gray-800">24</p>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-xl border-b hover:shadow-lg p-6 flex items-start gap-4">
+                        <Tag className="w-6 h-6 text-[#0dafee] mt-1" />
+                        <div>
+                            <h3 className="text-gray-500 text-sm mb-1">Price</h3>
+                            <p className="font-semibold text-gray-800">₹ 10000</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Content */}
-                <div className=" mb-16">
-                    <div className="bg-white rounded-sm shadow-lg p-8 max-sm:p-4">
+                <div className="mb-16">
+                    <div className="bg-white rounded-lg shadow-md p-8 max-sm:p-4">
                         <div className="space-y-12">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {/* Who Should Take This Course */}
-                                <div className="bg-[#0dafee]/10 p-6 max-sm:p-2 hover:shadow-md transition-shadow">
+                                {/* Course Objectives */}
+                                <div className="bg-gray-50  transition-colors hover:bg-gray-100 rounded-md p-6 max-sm:p-2 shadow-md ">
+
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className="w-12 h-12 bg-[#134a9d]/10 rounded-xl flex items-center justify-center">
-                                            <Users className="w-6 h-6 text-[#0dafee]" />
+                                            <Award className="w-6 h-6 text-[#0dafee]" />
                                         </div>
-                                        <h2 className="text-2xl max-sm:text-lg font-semibold text-gray-800">Who Should Take This Course</h2>
+                                        <h2 className="text-2xl max-sm:text-lg font-semibold text-gray-800">Course Objectives</h2>
                                     </div>
                                     <div className="space-y-4 pl-4">
-                                        {course.whoShouldTakeThisCourse.map((target, index) => (
+                                        {course.keyBenefits.map((target, index) => (
                                             <div key={index} className="grid grid-cols-12 text-gray-600">
                                                 <div className="justify-self-start">
                                                     <div className="w-2 h-2 max-sm:w-1 max-sm:h-1 bg-[#0dafee] rounded-full mt-2"></div>
@@ -62,20 +107,20 @@ const CourseDetail = () => {
                                     </div>
                                 </div>
 
-                                <div>
-                                    <img src={course.courseImgSrc} alt="not found" className="w-full max-sm:h-[16rem] h-full object-cover" />
+                                <div >
+                                    <img src={course.courseImgSrc} alt="not found" className="w-full rounded-md max-sm:h-[16rem] h-full object-cover" />
                                 </div>
                             </div>
-                            {/* Prerequisites */}
-                            <div className="bg-[#0dafee]/10 p-6 hover:shadow-md transition-shadow">
+                            {/* Who Should Take This Course  */}
+                            <div className="bg-gray-50 transition-colors hover:bg-gray-100 shadow-md rounded-md p-6">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-12 h-12 bg-[#134a9d]/10 rounded-xl flex items-center justify-center">
-                                        <Award className="w-6 h-6 text-[#0dafee]" />
+                                        <Users className="w-6 h-6 text-[#0dafee]" />
                                     </div>
-                                    <h2 className="text-2xl max-sm:text-lg font-semibold text-gray-800">Prerequisites</h2>
+                                    <h2 className="text-2xl max-sm:text-lg font-semibold text-gray-800">Who Should Take This Course</h2>
                                 </div>
                                 <div className="space-y-4 pl-4">
-                                    {course.prerequisites.map((prereq, index) => (
+                                    {course.whoShouldTakeThisCourse.map((prereq, index) => (
                                         <div key={index} className="grid grid-cols-12 text-gray-600">
                                             <div className="justify-self-center">
                                                 <div className="w-2 h-2 max-sm:w-1 max-sm:h-1 bg-[#0dafee] rounded-full mt-2"></div>
@@ -86,16 +131,16 @@ const CourseDetail = () => {
                                 </div>
                             </div>
 
-                            {/* Key Benefits */}
-                            <div className="bg-[#0dafee]/10 p-6 hover:shadow-md transition-shadow">
+                            {/* Pre-requisites*/}
+                            <div className="bg-gray-50 rounded-md p-6 transition-colors hover:bg-gray-100 shadow-md ">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-12 h-12 bg-[#134a9d]/10 rounded-xl flex items-center justify-center">
                                         <CheckCircle className="w-6 h-6 text-[#0dafee]" />
                                     </div>
-                                    <h2 className="text-2xl  max-sm:text-lg font-semibold text-gray-800">Key Benefits</h2>
+                                    <h2 className="text-2xl  max-sm:text-lg font-semibold text-gray-800">Pre-requisites</h2>
                                 </div>
                                 <div className="space-y-4 pl-4">
-                                    {course.keyBenefits.map((benefit, index) => (
+                                    {course.prerequisites.map((benefit, index) => (
                                         <div key={index} className="grid grid-cols-12 text-gray-600">
                                             <div className="justify-self-center">
                                                 <div className="w-2 h-2 max-sm:w-1 max-sm:h-1 bg-[#0dafee] rounded-full mt-2"></div>
@@ -107,10 +152,54 @@ const CourseDetail = () => {
                             </div>
 
 
+
+                            {/* Enroll Now Button */}
+                            <div className="flex justify-center">
+                                <motion.a
+                                    href="https://www.aksinstitute.com/allcourses"
+                                    target="_blank"
+                                    className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    Enroll Now
+                                    <ArrowRight className="w-5 h-5" />
+                                </motion.a>
+                            </div>
+
+                            {/* CURRICULLUM */}
+                            <section className=" px-2 bg-white">
+                                <div className="space-y-14 px-4">
+                                    <div className="">
+                                        <h2 className=" text-center section-heading">Curricullum</h2>
+                                        <div className="flex justify-center items-center gap-2 mb-8">
+                                            <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
+                                            <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div className="lg:max-w-5xl max-sm:max-w-full grid grid-cols-2 max-sm:grid-cols-1 gap-4 mx-auto">
+                                        {course?.curriculum.map((level, index) => (
+                                            <motion.div
+                                                key={index}
+                                                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: index * 0.1 }}
+                                                className="flex rounded-md hover:shadow-lg h-fit shadow-md px-6 py-3 items-start gap-6 mb-12 last:mb-0"
+                                            >
+                                                <div>
+                                                    <h3 className="text-xl mb-2 text-[#0dafee]">Lesson {index + 1}</h3>
+                                                    <p className="text-gray-600">{level}</p>
+                                                </div>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </section>
+
                             {/* Career Applicability */}
-                            <div className="bg-[#0dafee]/10 p-6 hover:shadow-md transition-shadow">
+                            <div className="bg-gray-50 rounded-md p-6">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-12 h-12 bg-[#134a9d]/10 rounded-xl flex items-center justify-center">
+                                    <div className="w-12 h-12 shadow-lg rounded-xl flex items-center justify-center">
                                         <Briefcase className="w-6 h-6 text-[#0dafee]" />
                                     </div>
                                     <h2 className="text-2xl max-sm:text-lg font-semibold text-gray-800">Career Applicability</h2>
@@ -121,7 +210,7 @@ const CourseDetail = () => {
                                         // Map icon strings to Lucide icons
                                         Icon = career.icon
                                         return (
-                                            <div key={index} className="bg-white p-6 text-center shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+                                            <div key={index} className="bg-white rounded-md p-6 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
                                                 <div className="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
                                                     <Icon className="w-7 h-7 text-[#0dafee]" />
                                                 </div>
@@ -135,33 +224,9 @@ const CourseDetail = () => {
                     </div>
                 </div>
 
-                {/* Course Overview Banner */}
-                <div className=" mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4">
-                        <Calendar className="w-6 h-6 text-[#0dafee] mt-1" />
-                        <div>
-                            <h3 className="text-gray-500 text-sm mb-1">Application closes on</h3>
-                            <p className="font-semibold text-gray-800">25 Mar, 2025</p>
-                        </div>
-                    </div>
-                    <div className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4">
-                        <Clock className="w-6 h-6 text-[#0dafee] mt-1" />
-                        <div>
-                            <h3 className="text-gray-500 text-sm mb-1">Program duration</h3>
-                            <p className="font-semibold text-gray-800">{course.duration}</p>
-                        </div>
-                    </div>
-                    <div className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4">
-                        <BookOpen className="w-6 h-6 text-[#0dafee] mt-1" />
-                        <div>
-                            <h3 className="text-gray-500 text-sm mb-1">Learning Format</h3>
-                            <p className="font-semibold text-gray-800">{course.modeOfLearning[0]}</p>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Why Join this Program */}
-                <div className=" space-y-12 mb-16">
+                {/* <div className=" space-y-12 mb-16">
                     <div className="container mx-auto px-4">
                         <h2 className=" text-center section-heading">Why Join this Program?</h2>
                         <div className="flex justify-center items-center gap-2 mb-8">
@@ -207,62 +272,12 @@ const CourseDetail = () => {
                             <p className="text-gray-600 max-sm:text-sm  text-center">Access our state-of-the-art labs and work on real-world projects with hands-on cybersecurity training.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                {/* Application Process */}
-                <div className=" mb-16">
-                    <div className="bg-white rounded-sm shadow-lg p-8 max-sm:p-4">
-                        <h2 className="text-3xl max-sm:text-2xl font-semibold text-gray-800 mb-4">Application Process</h2>
-                        <p className="text-gray-600 max-sm:text-sm text-lg mb-8">
-                            The application process consists of three simple steps. An offer of admission will be made to the selected candidates and accepted by the candidates by paying the admission fee.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {/* Step 1 */}
-                            <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-md transition-all">
-                                <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 1</div>
-                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                                    <FileText className="w-6 h-6 text-[#0dafee]" />
-                                </div>
-                                <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Submit Application</h3>
-                                <p className="text-gray-600 max-sm:text-sm">Tell us a bit about yourself and why you want to do this program</p>
-                            </div>
 
-                            {/* Step 2 */}
-                            <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-md transition-all">
-                                <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 2</div>
-                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                                    <CheckSquare className="w-6 h-6 text-[#0dafee]" />
-                                </div>
-                                <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Reserve Your Seat</h3>
-                                <p className="text-gray-600 max-sm:text-sm">An admission panel will shortlist candidates based on their application</p>
-                            </div>
 
-                            {/* Step 3 */}
-                            <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-md transition-all">
-                                <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 3</div>
-                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                                    <GraduationCap className="w-6 h-6 text-[#0dafee]" />
-                                </div>
-                                <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Start Learning</h3>
-                                <p className="text-gray-600 max-sm:text-sm">Selected candidates can begin the program within 1-2 weeks</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                {/* Enroll Now Button */}
-                <div className="">
-                    <motion.a
-                        href="https://www.aksinstitute.com/allcourses"
-                        target="_blank"
-                        className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        Enroll Now
-                        <ArrowRight className="w-5 h-5" />
-                    </motion.a>
-                </div>
+
             </div>
         </div>
     );

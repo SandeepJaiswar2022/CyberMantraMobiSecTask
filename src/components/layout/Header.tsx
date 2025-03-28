@@ -8,8 +8,8 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className="bg-white sticky  -top-1 z-10 shadow-sm">
-            <nav className="py-4 lg:max-w-[78.5rem] md:max-w-[47rem] max-sm:max-w-[22rem] mx-auto">
+        <header className="bg-white sticky -top-1 z-10 shadow-sm">
+            <nav className="py-4 lg:max-w-[84rem] lg:px-4  md:max-w-[47rem] max-sm:max-w-[22rem] mx-auto">
                 <div className="flex items-center justify-between">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -21,18 +21,19 @@ const Header = () => {
                         </Link>
                     </motion.div>
 
-                    <div className="hidden md:flex space-x-8 relative">
+                    <div className="hidden lg:flex space-x-8 relative">
                         <NavLink to="/">Home</NavLink>
+                        <NavLink to="/cyber-security-audit">Audits</NavLink>
                         <NavLink to="/vapt-services">VAPT Services</NavLink>
                         <NavLink to="/cybersecurity-consultancy">Consultancy</NavLink>
                         <NavLink to="/training-courses">Training Courses</NavLink>
-                        <NavLink to="/cyber-security-audit">Audits</NavLink>
+                        <NavLink to="/contact">Contact</NavLink>
                     </div>
 
-                    {/* Mobile menu */}
+                    {/* Mobile and Tablet menu */}
                     <Sheet open={open} onOpenChange={setOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" className="md:hidden">
+                            <Button variant="ghost" className="lg:hidden">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
@@ -44,6 +45,9 @@ const Header = () => {
                                     <NavLink to="/">Home</NavLink>
                                 </div>
                                 <div onClick={() => setOpen(false)}>
+                                    <NavLink to="/cyber-security-audit">Audits</NavLink>
+                                </div>
+                                <div onClick={() => setOpen(false)}>
                                     <NavLink to="/vapt-services">VAPT Services</NavLink>
                                 </div>
                                 <div onClick={() => setOpen(false)}>
@@ -53,7 +57,7 @@ const Header = () => {
                                     <NavLink to="/training-courses">Training Courses</NavLink>
                                 </div>
                                 <div onClick={() => setOpen(false)}>
-                                    <NavLink to="/cyber-security-audit">Audits</NavLink>
+                                    <NavLink to="/contact">Contact</NavLink>
                                 </div>
                             </div>
                         </SheetContent>
@@ -68,7 +72,7 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
     <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.95 }}>
         <Link
             to={to}
-            className="text-[#0dafee] hover:text-[#1a7ba2] lg:text-lg text-sm font-medium transition-colors"
+            className="text-[#0dafee] hover:text-[#1a7ba2] lg:text-[1rem] text-sm font-medium transition-colors"
         >
             {children}
         </Link>

@@ -3,6 +3,7 @@ import { animate, motion, useMotionValue } from "framer-motion";
 import { Shield, Search, FileSearch, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useMeasure from "react-use-measure";
 
 const VAPTServices = () => {
@@ -10,17 +11,20 @@ const VAPTServices = () => {
         {
             title: "Web Application Testing",
             description: "Identify weaknesses in your web platforms, including OWASP Top 10 vulnerabilities.",
-            icon: <Shield className="w-12 h-12 text-primary" />,
+            icon: <Shield className="w-8 h-8" />,
+            bgColor: "bg-blue-500"
         },
         {
             title: "Mobile Application Testing",
             description: "Secure your Android and iOS applications against malicious threats and data breaches.",
-            icon: <Search className="w-12 h-12 text-primary" />,
+            icon: <Search className="w-8 h-8" />,
+            bgColor: "bg-yellow-500"
         },
         {
             title: "Executable Testing",
             description: "Ensure standalone software is free of exploitable vulnerabilities, preventing potential malware injection.",
-            icon: <FileSearch className="w-12 h-12 text-primary" />,
+            icon: <FileSearch className="w-8 h-8" />,
+            bgColor: "bg-green-500"
         },
     ];
 
@@ -28,29 +32,35 @@ const VAPTServices = () => {
         {
             step: 1,
             title: "Reconnaissance",
-            description: "Gather information about your systems and potential attack surfaces.",
+            subTitle: "Gather information about your systems and potential attack surfaces.",
+            description: "In this initial phase, we collect valuable information about your systems, network architecture, and potential attack surfaces through open-source intelligence (OSINT) and other passive methods. This helps us map out the security landscape before proceeding."
         },
         {
             step: 2,
             title: "Scanning",
-            description: "Use automated tools to identify vulnerabilities.",
+            subTitle: "Use automated tools to identify vulnerabilities.",
+            description: "Automated and manual scanning techniques are employed to detect security flaws, misconfigurations, open ports, outdated software, and other vulnerabilities across your infrastructure and applications."
         },
         {
             step: 3,
             title: "Exploitation",
-            description: "Conduct manual testing to attempt exploitation of discovered vulnerabilities.",
+            subTitle: "Conduct manual testing to attempt exploitation of discovered vulnerabilities.",
+            description: "We conduct controlled manual testing to safely exploit the identified vulnerabilities. This step helps verify the actual impact and potential damage that an attacker could inflict, ensuring realistic and actionable results."
         },
         {
             step: 4,
             title: "Reporting",
-            description: "Deliver a comprehensive report with risk prioritization and remediation steps.",
+            subTitle: "Deliver a comprehensive report with risk prioritization and remediation steps.",
+            description: "A detailed report is prepared, highlighting all findings, risk ratings, proof-of-concept evidence, and tailored recommendations. This report aids your team in understanding the security posture and the necessary steps for remediation."
         },
         {
             step: 5,
             title: "Retesting",
-            description: "Verify that identified vulnerabilities have been successfully patched.",
-        },
+            subTitle: "Verify that identified vulnerabilities have been successfully patched.",
+            description: "After your team has implemented the recommended fixes, we perform a thorough retest to ensure that all previously identified vulnerabilities have been properly mitigated and no new issues have been introduced."
+        }
     ];
+
 
     const features = [
         {
@@ -132,7 +142,7 @@ const VAPTServices = () => {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
+                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl"
                         >
                             Vulnerability Assessment and Penetration Testing (VAPT)
                         </motion.h1>
@@ -152,7 +162,7 @@ const VAPTServices = () => {
             <div className="my-container">
                 {/* Services Section */}
                 <section className="py-16 bg-white">
-                    <div className="container space-y-24 mx-auto px-4">
+                    <div className="container space-y-24 mx-auto">
                         <div>
                             <div className="container mx-auto px-4">
                                 <h2 className="section-heading text-center">Our VAPT Services Include</h2>
@@ -170,9 +180,11 @@ const VAPTServices = () => {
                                         transition={{ delay: index * 0.2 }}
                                         className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                                     >
-                                        <div className="mb-4">{service.icon}</div>
+                                        <div className={`${service.bgColor} text-white  p-4 rounded-full w-fit mb-6`}>
+                                            {service.icon}
+                                        </div>
                                         <h3 className="text-lg font-medium leading-none mb-3">{service.title}</h3>
-                                        <p className="text-gray-600">{service.description}</p>
+                                        <p className="text-gray-600 text-[1rem]">{service.description}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -182,25 +194,24 @@ const VAPTServices = () => {
                         <div className="text-center space-y-8">
                             <p className="text-2xl italic">Secure your applications and infrastructure with our VAPT services.</p>
                             {/* Enroll Now Button */}
-                            <div className="">
-                                <motion.a
-                                    href="https://www.aksinstitute.com/allcourses"
-                                    target="_blank"
-                                    className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                            <Link to={`/contact`} className="">
+                                <motion.div
+
+                                    className="inline-flex mt-4 items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     Learn More
                                     <ArrowRight className="w-5 h-5" />
-                                </motion.a>
-                            </div>
+                                </motion.div>
+                            </Link>
                         </div>
                     </div>
                 </section>
 
                 {/* Process Section */}
                 <section className="py-16 overflow-hidden">
-                    <div className="container mx-auto px-4 space-y-20">
+                    <div className="container mx-auto  space-y-20">
                         <div className="container mx-auto px-4">
                             <h2 className="section-heading text-center">Our Process</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
@@ -221,18 +232,19 @@ const VAPTServices = () => {
                                             }`}
                                     >
                                         <div className="flex-1 flex gap-3 md:text-left">
-                                            <div className=" bg-primary text-white text-2xl font-bold rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                                            <div className="bg-primary text-white text-2xl font-bold rounded-full max-sm:w-8 max-sm:h-8 p-5 w-12 h-12 flex items-center justify-center mb-4">
                                                 {step.step}
 
                                             </div>
                                             <div className="pt-3">
-                                                <h3 className="text-lg font-medium leading-none mb-2">{step.title}</h3>
+                                                <h3 className="text-xl font-bold leading-none mb-2">{step.title}</h3>
+                                                <h3 className="text-[1rem] text-gray-600 leading-none mb-2">{step.subTitle}</h3>
                                             </div>
                                         </div>
                                         <div className="flex-1">
-                                            <div className="w-full h-[200px] bg-gray-200 rounded-lg flex items-center justify-center">
-                                                {/* <p className="text-gray-500">Process Step {step.step} Illustration</p> */}
-                                                <p className="text-gray-800 text-center">{step.description}</p>
+                                            <div className="w-full h-[200px] bg-gray-200 rounded-lg flex items-center flex-col gap-4 justify-center">
+                                                {/* <p className="text-gray-900">Process Step {step.step} Illustration</p> */}
+                                                <p className="text-gray-800 px-2 text-[1rem] text-center">{step.description}</p>
                                             </div>
                                         </div>
                                     </motion.div>
@@ -245,17 +257,17 @@ const VAPTServices = () => {
 
                 {/* Why Choose Us Section */}
                 <section className="space-y-6 py-16">
-                    <div className="container mx-auto px-4">
+                    <div className="container mx-auto">
                         <h2 className="section-heading text-center">Why CyberMantra for VAPT?</h2>
                         <div className="flex justify-center items-center gap-2 mb-8">
                             <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
                             <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
                         </div>
                     </div>
-                    <div className="left-0 mb-16 relative overflow-x-clip h-max w-full">
+                    <div className="left-0 mb-16 relative lg:mx-7 overflow-x-clip h-max">
                         <motion.div
                             ref={ref}
-                            className="flex space-x-10"
+                            className="flex gap-6"
                             style={{ x: xTranslation, display: "flex", width: "max-content" }}
                             onHoverStart={() => {
                                 setMustFinish(true);

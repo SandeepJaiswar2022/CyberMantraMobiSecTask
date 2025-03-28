@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useMeasure from "react-use-measure";
 
 const CybersecurityConsultancy = () => {
@@ -157,7 +158,7 @@ const CybersecurityConsultancy = () => {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
+                            className="text-white mb-6 text-heading"
                         >
                             Strategic Cybersecurity Consulting Services
                         </motion.h1>
@@ -177,8 +178,8 @@ const CybersecurityConsultancy = () => {
 
             <div className="my-container">
                 <section className="py-20 space-y-16">
-                    <div className="space-y-12 px-4">
-                        <div className="container mx-auto px-4">
+                    <div className="space-y-12">
+                        <div className="container mx-auto">
                             <h2 className=" text-center section-heading">Our Consultancy Services</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
                                 <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
@@ -192,7 +193,7 @@ const CybersecurityConsultancy = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="bg-white p-8 rounded-lg shadow-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                    className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                 >
                                     <div className={`${service.bgColor} text-white  p-4 rounded-full w-fit mb-6`}>
                                         {service.icon}
@@ -204,21 +205,20 @@ const CybersecurityConsultancy = () => {
                         </div>
                     </div>
                     {/* CTA Section */}
-                    <div className="text-center px-3 space-y-8">
+                    <div className="text-center px-3">
                         <p className="text-2xl italic">Strengthen your cybersecurity framework with our consultancy services.</p>
                         {/* Enroll Now Button */}
-                        <div className="">
-                            <motion.a
-                                href="https://www.aksinstitute.com/allcourses"
-                                target="_blank"
-                                className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                        <Link to={`/contact`} className="">
+                            <motion.div
+
+                                className="inline-flex mt-4 items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
                                 Get Started
                                 <ArrowRight className="w-5 h-5" />
-                            </motion.a>
-                        </div>
+                            </motion.div>
+                        </Link>
                     </div>
                 </section>
 
@@ -262,10 +262,10 @@ const CybersecurityConsultancy = () => {
                             <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
                         </div>
                     </div>
-                    <div className="left-0 mb-16 relative overflow-x-clip h-max w-full">
+                    <div className="left-0 mb-16 mx-6 relative overflow-x-clip h-max">
                         <motion.div
                             ref={ref}
-                            className="flex space-x-10"
+                            className="flex space-x-10 mx-10"
                             style={{ x: xTranslation, display: "flex", width: "max-content" }}
                             onHoverStart={() => {
                                 setMustFinish(true);

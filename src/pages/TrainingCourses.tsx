@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
     BookOpen,
     Terminal,
@@ -10,7 +10,10 @@ import {
     Laptop,
     Layout,
     Building,
-    ArrowRight
+    ArrowRight,
+    FileText,
+    CheckSquare,
+    GraduationCap
 } from "lucide-react";
 
 const TrainingCourses = () => {
@@ -115,7 +118,7 @@ const TrainingCourses = () => {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-white mb-6 text-heading lg:text-5xl md:text-4xl max-sm:text-2xl font-bold"
+                            className="text-white mb-6 text-heading"
                         >
                             Expert-Led Cybersecurity Training Courses
                         </motion.h1>
@@ -135,8 +138,8 @@ const TrainingCourses = () => {
             <div className="my-container space-y-28 ">
                 {/* Training Programs Section with Card Grid */}
                 <section className="space-y-16">
-                    <div className="space-y-12 px-4">
-                        <div className="container mx-auto px-4">
+                    <div className="space-y-12">
+                        <div className="container mx-auto">
                             <h2 className="text-center section-heading">Training Programs We Offer</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
                                 <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
@@ -169,29 +172,74 @@ const TrainingCourses = () => {
                         </div>
                     </div>
 
+                    {/* Application Process */}
+                    <section className="">
+                        <div className="bg-white rounded-sm max-sm:p-4">
+                            <div className="container mx-auto px-4">
+                                <h2 className="text-center section-heading">Application Process</h2>
+                                <div className="flex justify-center items-center gap-2 mb-8">
+                                    <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
+                                    <div className="h-[3px] w-[25px] bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <p className="text-gray-600 max-sm:text-sm text-lg mb-8">
+                                The application process consists of three simple steps. An offer of admission will be made to the selected candidates and accepted by the candidates by paying the admission fee.
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {/* Step 1 */}
+                                <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-lg transition-all">
+                                    <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 1</div>
+                                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                                        <FileText className="w-6 h-6 text-[#0dafee]" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Submit Application</h3>
+                                    <p className="text-gray-600 max-sm:text-sm">Tell us a bit about yourself and why you want to do this program</p>
+                                </div>
+
+                                {/* Step 2 */}
+                                <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-lg transition-all">
+                                    <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 2</div>
+                                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                                        <CheckSquare className="w-6 h-6 text-[#0dafee]" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Reserve Your Seat</h3>
+                                    <p className="text-gray-600 max-sm:text-sm">An admission panel will shortlist candidates based on their application</p>
+                                </div>
+
+                                {/* Step 3 */}
+                                <div className="bg-[#0dafee]/10 p-6 relative group hover:shadow-lg transition-all">
+                                    <div className="text-sm text-[#0dafee] font-medium mb-2">STEP 3</div>
+                                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                                        <GraduationCap className="w-6 h-6 text-[#0dafee]" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold max-sm:text-lg text-gray-800 mb-3">Start Learning</h3>
+                                    <p className="text-gray-600 max-sm:text-sm">Selected candidates can begin the program within 1-2 weeks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* CTA Section */}
-                    <div className="text-center px-3 space-y-8">
+                    <div className="text-center space-y-8">
                         <p className="text-2xl italic">Empower yourself or your team with cybersecurity expertise.</p>
                         {/* Enroll Now Button */}
-                        <div className="">
-                            <motion.a
-                                href="https://www.aksinstitute.com/allcourses"
-                                target="_blank"
-                                className="inline-flex items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
+                        <Link to={`/contact`} className="">
+                            <motion.div
+                                className="inline-flex mt-4 items-center gap-2 bg-[#0dafee] hover:bg-[#2098c8] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0dafee]/20"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
                                 Enroll Today
                                 <ArrowRight className="w-5 h-5" />
-                            </motion.a>
-                        </div>
+                            </motion.div>
+                        </Link>
                     </div>
                 </section>
 
                 {/* Features Section with Interactive Cards */}
                 <section className="bg-white">
-                    <div className="space-y-12 px-4">
-                        <div className="container mx-auto px-4">
+                    <div className="space-y-12">
+                        <div className="container mx-auto ">
                             <h2 className=" text-center section-heading">What Makes Our Training Unique?</h2>
                             <div className="flex justify-center items-center gap-2 mb-8">
                                 <div className="h-[3px] w-[80px] bg-[#0dafee] rounded-full"></div>
@@ -205,7 +253,7 @@ const TrainingCourses = () => {
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     whileHover={{ y: -5 }}
-                                    className="bg-gray-50 rounded-xl p-6 text-center duration-500 hover:bg-[#0dafee] group transition-colors"
+                                    className="bg-gray-100 rounded-xl p-6 text-center duration-500 hover:bg-[#0dafee] group transition-colors"
                                 >
                                     <div className="w-16 h-16 mx-auto mb-4 bg-[#134a9d]/10 rounded-full flex items-center justify-center group-hover:text-white group-hover:bg-black text-[#0dafee]">
                                         {feature.icon}
@@ -235,7 +283,7 @@ const TrainingCourses = () => {
                                         key={index}
                                         initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.2 }}
+                                        transition={{ delay: 0.5 }}
                                         className="flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg hover:shadow-md transition-shadow"
                                     >
                                         <div className="w-8 h-8 bg-[#134a9d]/10 rounded-full flex items-center justify-center text-[#0dafee]">
